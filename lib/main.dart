@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projects/home_app.dart';
 import 'package:projects/reveiw.dart';
 //import 'package:projects/home_screen.dart';
 //import 'package:projects/login_screen.dart';
@@ -26,8 +27,8 @@ class MyApp extends StatelessWidget
   Widget build(BuildContext context)
   {
     return MaterialApp(
-      debugShowCheckedModeBanner: true ,
-    home:Reveiw(),
+      debugShowCheckedModeBanner: false ,
+    home:HomeApp(),
     );
   }
 

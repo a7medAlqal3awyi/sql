@@ -1,114 +1,151 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class  Reveiw extends StatelessWidget {
+class BmiScreen extends StatefulWidget {
 
-
-  var emailController =TextEditingController();
-  var passwordController =TextEditingController();
   @override
-  Widget build(BuildContext context)
-  {
+  State<BmiScreen> createState() => _BmiScreenState();
+}
+
+class _BmiScreenState extends State<BmiScreen> {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: SingleChildScrollView (
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment:MainAxisAlignment.center,
-              children: [
-                Text('Login',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold ,
-                ),),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  controller: emailController,
-                  keyboardType:TextInputType.emailAddress ,
-                  onFieldSubmitted: (value)
-                  {
-                    print(value);
-                  },
-                  onChanged:(value)
-                  {
-                    print(value);
-                  },
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email),
-                    labelText: 'Email Address',
-                    border: OutlineInputBorder(),
-                  ),
+      appBar: AppBar(
+        title: Text(
+          'BMI Calculator'
+        ),
 
-                ),
+      ),
+      body:Column(
+        children: [
+          Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
 
-                SizedBox(
-                  height: 10,
-                ),
-                TextFormField (
-                  controller: passwordController,
-                  keyboardType:TextInputType.visiblePassword ,
-                  obscureText: true,
-                  onFieldSubmitted: (value)
-                  {
-                    print(value);
-                  },
-                  onChanged:(value)
-                  {
-                    print(value);
-                  },
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.remove_red_eye),
-                    labelText: 'Password',
-                    border: OutlineInputBorder(),
-
-                  ),
-
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Container (
-                  width: double.infinity,
-                  color: Colors.blue,
-                  child: MaterialButton(onPressed: ()
-                  {
-                    print(emailController.text);
-                    print(passwordController.text);
-                  },
-                  child: Text(
-                    'login',
-                    style: TextStyle(
-                      color: Colors.white
-                    ),
-                  ) ,
-                  ),
-                ),
-
-                Row(
-                  mainAxisAlignment:MainAxisAlignment.center ,
                   children: [
-                    Text(
-                      'Don\'t have an account?',
+                    Expanded(
+                      child: Container(
+
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.cake_rounded,
+                            size: 40,),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              'MALE',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.grey[400],
+                        ),
+                      ),
                     ),
-                    TextButton(onPressed: (){}, child:
-                    Text(
-                      'Register New',
+                    SizedBox(
+                      width: 20 ,
                     ),
-                    )
+                    Expanded(
+                      child: Container(
+
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.cake_rounded,
+                              size: 40,),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              'MALE',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.grey[400],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-              ],
+              ),
+             ),
+
+          Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+
+                   crossAxisAlignment: CrossAxisAlignment.center,
+                   children: [
+                     Text(
+                         'HEIGHT',
+                       style: TextStyle(
+                         fontSize: 25,
+                       ),
+                     ),
+                     Row(
+                       crossAxisAlignment: CrossAxisAlignment.baseline,
+                       textBaseline:TextBaseline.alphabetic  ,
+                       children: [
+                           Text(
+                           '180',
+                           style: TextStyle(
+                             fontSize: 040,
+                             fontWeight: FontWeight.bold,
+                           ),
+                         ),
+                         Text(
+                           'cm',
+                           style: TextStyle(
+                             fontSize: 20,
+                           //  fontWeight: FontWeight.bold,
+                           ),
+                         ),
+                       ],
+                     ),
+
+
+                   ],
+                  )
+                ],
+              ),),
+          Expanded(
+              child: Container(
+                color: Colors.cyanAccent,
+              )),
+          Container(
+            width: double.infinity,
+            child: MaterialButton(onPressed: (){},
+              height: 50,
+              color: Colors.blue,
+              child: Text(
+                'CALCULATE',
+                style: TextStyle(
+                  color: Colors.white
+                ),
+              ),
+
             ),
-          ),
-        ),
-      ),
+          )
+
+        ],
+      ) ,
     );
   }
-
 }
